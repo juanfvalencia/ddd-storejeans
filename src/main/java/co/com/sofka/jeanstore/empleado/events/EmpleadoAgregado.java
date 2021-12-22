@@ -8,6 +8,7 @@ public class EmpleadoAgregado extends DomainEvent {
 
     private final EmpleadoId empleadoId;
     private final Nombre nombre;
+
     public EmpleadoAgregado(EmpleadoId empleadoId, Nombre nombre){
         super("jeanstore.empleado.empleadoagregado");
         this.empleadoId = empleadoId;
@@ -16,5 +17,9 @@ public class EmpleadoAgregado extends DomainEvent {
 
     public EmpleadoId getEmpleadoId() {
         return empleadoId;
+    }
+
+    public Nombre getNombre() {
+        return nombre;
     }
 }
