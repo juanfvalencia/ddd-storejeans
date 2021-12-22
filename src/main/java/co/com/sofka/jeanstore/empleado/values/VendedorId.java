@@ -1,4 +1,6 @@
 package co.com.sofka.jeanstore.empleado.values;
 
-public class VendedorId {
+import co.com.sofka.domain.generic.Identity;
+
+public class VendedorId extends Identity {
 }

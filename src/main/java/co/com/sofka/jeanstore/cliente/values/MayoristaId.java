@@ -1,4 +1,6 @@
 package co.com.sofka.jeanstore.cliente.values;
 
-public class MayoristaId {
+import co.com.sofka.domain.generic.Identity;
+
+public class MayoristaId extends Identity {
 }

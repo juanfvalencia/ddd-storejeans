@@ -9,7 +9,7 @@ import co.com.sofka.jeanstore.producto.values.Color;
 import co.com.sofka.jeanstore.producto.values.DescuentoPromocion;
 import co.com.sofka.jeanstore.producto.values.ProductoId;
 import co.com.sofka.jeanstore.producto.values.TipoJean;
-import co.com.sofka.jeanstore.venta.events.VentaCreada;
+import co.com.sofka.jeanstore.venta.events.*;
 import co.com.sofka.jeanstore.venta.values.Factura;
 import co.com.sofka.jeanstore.venta.values.VentaId;
 
@@ -29,28 +29,25 @@ public class Venta extends AggregateEvent<VentaId> {
         appendChange(new VentaCreada(factura)).apply();
     }
 
-    public void agregarProducto(ProductoId entityId, Color color, DescuentoPromocion descuentoPromocion, TipoJean tipoJean){
+    public void agregarProducto(ProductoId entityId){
         Objects.requireNonNull(entityId);
-        Objects.requireNonNull(color);
-        Objects.requireNonNull(descuentoPromocion);
-        Objects.requireNonNull(tipoJean);
-        appendChange(new productoAgregado(entityId, color, descuentoPromocion, tipoJean)).apply();
+        appendChange(new ProductoAgregado(entityId)).apply();
     }
 
-    public void cambiarProducto(ProductoId entityId, Color color, DescuentoPromocion descuentoPromocion, TipoJean tipoJean){
-        appendChange(new productoCambiado(entityId, color, descuentoPromocion, tipoJean)).apply();
+    public void cambiarProducto(ProductoId entityId){
+        appendChange(new ProductoCambiado(entityId)).apply();
     }
 
     public void generarFactura(Factura factura){
-        appendChange(new facturaAgregada(factura)).apply();
+        appendChange(new FacturaAgregada(factura)).apply();
     }
 
     public void asociarCliente(ClienteId entityId, Cuenta cuenta){
-        appendChange(new clienteAsociado(entityId, cuenta)).apply();
+        appendChange(new ClienteAsociado(entityId, cuenta)).apply();
     }
 
     public void asociarEmpleado(EmpleadoId entityId, Nombre nombre){
-        appendChange(new empleadoAsociado(entityId, nombre)).apply();
+        appendChange(new EmpleadoAsociado(entityId, nombre)).apply();
     }
 
     public Factura factura(){
