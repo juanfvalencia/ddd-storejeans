@@ -5,10 +5,7 @@ import co.com.sofka.jeanstore.cliente.values.ClienteId;
 import co.com.sofka.jeanstore.cliente.values.Cuenta;
 import co.com.sofka.jeanstore.empleado.values.EmpleadoId;
 import co.com.sofka.jeanstore.empleado.values.Nombre;
-import co.com.sofka.jeanstore.producto.values.Color;
-import co.com.sofka.jeanstore.producto.values.DescuentoPromocion;
 import co.com.sofka.jeanstore.producto.values.ProductoId;
-import co.com.sofka.jeanstore.producto.values.TipoJean;
 import co.com.sofka.jeanstore.venta.events.*;
 import co.com.sofka.jeanstore.venta.values.Factura;
 import co.com.sofka.jeanstore.venta.values.VentaId;
@@ -24,7 +21,6 @@ public class Venta extends AggregateEvent<VentaId> {
     protected ProductoId productoId;
 
     public Venta (VentaId entityId, Factura factura){
-
         super(entityId);
         appendChange(new VentaCreada(factura)).apply();
     }

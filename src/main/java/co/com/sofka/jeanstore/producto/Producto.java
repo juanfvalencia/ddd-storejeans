@@ -74,12 +74,14 @@ public class Producto extends AggregateEvent<ProductoId> {
     }
 
     public Color color(){
+
         return color;
     }
 
     public TipoJean tipoJean(){
         return tipoJean;
     }
+
     public Referencia referencia(){
         return referencia;
     }
