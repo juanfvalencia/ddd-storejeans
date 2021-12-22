@@ -18,10 +18,10 @@ public class Empleado extends AggregateEvent<EmpleadoId> {
         super(entityId);
     }
 
-    public void agregarEmpleado (EmpleadoId empleadoId, Nombre nombre){
-        Objects.requireNonNull(empleadoId);
+    public void agregarEmpleado (EmpleadoId entityId, Nombre nombre){
+        Objects.requireNonNull(entityId);
         Objects.requireNonNull(nombre);
-        appendChange(new EmpleadoAgregado(empleadoId, nombre));
+        appendChange(new EmpleadoAgregado(entityId, nombre));
     }
 
     public Nombre nombre(){

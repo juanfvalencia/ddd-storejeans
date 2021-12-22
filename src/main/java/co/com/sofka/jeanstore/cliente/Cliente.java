@@ -18,16 +18,16 @@ public class Cliente extends AggregateEvent<ClienteId> {
         super(entityId);
     }
 
-    public void agregarCliente(ClienteId clienteId, Cuenta cuenta){
-        Objects.requireNonNull(clienteId);
+    public void agregarCliente(ClienteId entityId, Cuenta cuenta){
+        Objects.requireNonNull(entityId);
         Objects.requireNonNull(cuenta);
-        appendChange(new ClienteAgregado(clienteId, cuenta)).apply();
+        appendChange(new ClienteAgregado(entityId, cuenta)).apply();
     }
 
-    public void actualizarCliente(ClienteId clienteId, Cuenta cuenta){
-        Objects.requireNonNull(clienteId);
+    public void actualizarCliente(ClienteId entityId, Cuenta cuenta){
+        Objects.requireNonNull(entityId);
         Objects.requireNonNull(cuenta);
-        appendChange(new ClienteActualizado(clienteId, cuenta)).apply();
+        appendChange(new ClienteActualizado(entityId, cuenta)).apply();
     }
 
     public ClienteDetal clienteDetal(){
