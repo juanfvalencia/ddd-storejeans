@@ -5,7 +5,6 @@ import co.com.sofka.domain.generic.Identity;
 public class VentaId extends Identity {
 
     public VentaId(){
-
     }
 
     private VentaId(String id){
